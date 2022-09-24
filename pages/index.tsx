@@ -57,6 +57,7 @@ const Home: NextPage = () => {
   const handleAddAddress = async () => {
     alert("If you don't receive another alert then you don't have permissions")
     await addAddress(inputAddress);
+    setInputAddress("");
     alert("You have added a new address")
   }
 
