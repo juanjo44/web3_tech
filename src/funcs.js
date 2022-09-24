@@ -25,10 +25,10 @@ const connectWallet = async () => {
     
 
 export const consultCertificates = async (id) => {
-    connectWallet();
+    // connectWallet();
     const provider = new ethers.providers.Web3Provider(window.ethereum)
     await provider.send('eth_requestAccounts', []); 
-    const signer = await provider.getSigner();
+    const signer = await provider.getSigner("RANDOM_WALLET_ADDRESS");
     const punto2Contract = new ethers.Contract("0x51889B23c145B71Af0267129e4d2059337729FB9", Punto2JSON, signer)
     const certified = await punto2Contract.checkCertified(id);
     // const consult = await punto2Contract.checkCertified(id)
@@ -37,10 +37,10 @@ export const consultCertificates = async (id) => {
 }
 
 export const addCertificates = async (id, studentName, date, courseName) => {
-    connectWallet();
+    // connectWallet();
     const provider = new ethers.providers.Web3Provider(window.ethereum)
     await provider.send('eth_requestAccounts', []); 
-    const signer = await provider.getSigner();
+    const signer = await provider.getSigner("RANDOM_WALLET_ADDRESS");
     const punto2Contract = new ethers.Contract("0x51889B23c145B71Af0267129e4d2059337729FB9", Punto2JSON, signer)
     const certified = await punto2Contract.addCertified(id, studentName, date, courseName);
     
@@ -49,10 +49,10 @@ export const addCertificates = async (id, studentName, date, courseName) => {
 }
 
 export const addAddress = async(newAddressAccount) => {
-    connectWallet();
+    // connectWallet();
     const provider = new ethers.providers.Web3Provider(window.ethereum)
     await provider.send('eth_requestAccounts', []); 
-    const signer = await provider.getSigner();
+    const signer = await provider.getSigner("RANDOM_WALLET_ADDRESS");
     const punto2Contract = new ethers.Contract("0x51889B23c145B71Af0267129e4d2059337729FB9", Punto2JSON, signer)
     await punto2Contract.autorizeAddress(newAddressAccount);
     return "The new address was added correctly"
