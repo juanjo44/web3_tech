@@ -25,7 +25,7 @@ const connectWallet = async () => {
     
 
 export const consultCertificates = async (id) => {
-    // connectWallet();
+    connectWallet();
     const provider = new ethers.providers.Web3Provider(window.ethereum)
     await provider.send('eth_requestAccounts', []); 
     const signer = await provider.getSigner("RANDOM_WALLET_ADDRESS");
@@ -37,7 +37,7 @@ export const consultCertificates = async (id) => {
 }
 
 export const addCertificates = async (id, studentName, date, courseName) => {
-    // connectWallet();
+    connectWallet();
     const provider = new ethers.providers.Web3Provider(window.ethereum)
     await provider.send('eth_requestAccounts', []); 
     const signer = await provider.getSigner("RANDOM_WALLET_ADDRESS");
@@ -49,7 +49,7 @@ export const addCertificates = async (id, studentName, date, courseName) => {
 }
 
 export const addAddress = async(newAddressAccount) => {
-    // connectWallet();
+    connectWallet();
     const provider = new ethers.providers.Web3Provider(window.ethereum)
     await provider.send('eth_requestAccounts', []); 
     const signer = await provider.getSigner("RANDOM_WALLET_ADDRESS");
